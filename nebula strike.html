@@ -792,7 +792,7 @@ function doShoot() {
 function updatePowerupDisplay() {
   let html = '';
   if (player.tripleShot > 0) {
-    const pct = Math.round((player.tripleShot / 1440) * 100);
+    const pct = Math.round((player.tripleShot / 480) * 100);
     html += `<div class="pw-line">TRIPLE SHOT: ${pct}%</div>`;
   }
   if (player.explosive > 0) {
@@ -1112,7 +1112,7 @@ function update() {
       
       if (Math.hypot(it.x - player.x, it.y - player.y) < 38) {
         if (it.type === 'repair') player.shield = Math.min(100, player.shield + 30);
-        if (it.type === 'triple') player.tripleShot = 1440;
+        if (it.type === 'triple') player.tripleShot = 480;
         if (it.type === 'explosive') player.explosive = 480;
         if (it.type === 'shield') { player.shieldOverload = 1; player.shieldOverloadHits = 5; player.shieldOverloadCooldown = 0; }
         if (it.type === 'rapidfire') player.rapidFire = 300;
